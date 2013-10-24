@@ -19,8 +19,10 @@ $(document).ready(function(){
 		var length = $(document.createElement("div"));
 		string.text(completed);
 		string.addClass("completed-string");
+		string.addClass("mint");
 		length.text(completed.length +" characters");
 		length.addClass("completed-length");
+		length.addClass("mint");
 		log.append(string);
 		log.append(length);
 		$(".output-wrapper").prepend(log);
@@ -32,13 +34,20 @@ $(document).ready(function(){
 	var clearLetters = function(){
 		$(".active").removeClass("active");
 	}
-	var mutatePattern = function(){
-		var patternLength = Math.floor((Math.random()*40)+1);
+	var mutatePattern = function(allowDuplicates){
+		var patternLength = Math.floor(Math.random()*40);
 		charlist = [];
 		for (var i = patternLength - 1; i >= 0; i--) {
 			var randomIndex = Math.floor((Math.random()*abcs.length)+1);
-			charlist.push(abcs[randomIndex]);
+			console.log(randomIndex);
+			var candidateChar = abcs[randomIndex];
+			if (allowDuplicates || (charlist.indexOf(candidateChar) == -1)){
+				if (candidateChar != ""){
+					charlist.push(abcs[randomIndex]);
+				}
+			}			
 		};
+		charlist = charlist.sort();
 	}
 	var buildPattern = function(){
 		$("#charlist > *").remove();
@@ -54,7 +63,7 @@ $(document).ready(function(){
 	buildPattern();
 	input.on("keyup", function(){
 		clearLetters();
-		var stringy = input.val();
+		var stringy = input.val().toLowerCase();
 		for (var i = stringy.length - 1; i >= 0; i--) {
 			if (charlist.indexOf(stringy[i]) != -1) {
 				charDivs[stringy[i]].addClass("active");
