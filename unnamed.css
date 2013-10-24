@@ -1,0 +1,30 @@
+body{
+	margin-left:10%;
+	width:80%;
+}
+#charlist{
+	margin-left:10px;
+}
+#charlist div{
+	background-color:rgb(231, 207, 146);
+	display: inline-block;
+	padding: 6px;
+	font-family: monospace;
+}
+#charlist div.active {
+	background-color:orange;
+}
+#sentence{
+	margin-top:10px;
+	width: 100%;
+}
+.completed-string{
+	margin-top:6px;
+	color:orange;
+}
+.completed-length{
+	margin-top:2px;
+	font-style: italic;
+	text-align: right;
+}
+
