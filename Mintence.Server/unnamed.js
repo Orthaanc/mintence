@@ -12,11 +12,11 @@ $(document).ready(function(){
 	var testGrammerSpell = function() {
 		return $.ajax({
 			crossDomain: true,
-			url: "http://127.0.0.1:1049/checkDocument?data="+input.val()
+			url: "api/Atd/Get?data="+input.val()
 		})
 		.done(function( data ) {
-			if ( console && console.log ) {
-				console.log( "Sample of data:", data.slice( 0, 100 ) );
+			if ( data && data.results && console && console.log ) {
+				console.log( data.results );
 			}
 		});
 	};
@@ -50,7 +50,7 @@ $(document).ready(function(){
 		charlist = [];
 		for (var i = patternLength - 1; i >= 0; i--) {
 			var randomIndex = Math.floor(Math.random()*abcs.length);
-			console.log(randomIndex);
+			//console.log(randomIndex);
 			var candidateChar = abcs[randomIndex];
 			if (allowDuplicates || (charlist.indexOf(candidateChar) == -1)){
 				if (candidateChar != ""){
