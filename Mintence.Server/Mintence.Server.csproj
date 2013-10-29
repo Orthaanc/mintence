@@ -239,7 +239,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include=".gitignore" />
     <Content Include="README.md" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="index.html" />
